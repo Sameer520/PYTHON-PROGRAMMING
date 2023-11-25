@@ -1,0 +1,43 @@
+def generate_fee_payment_receipt():
+    student_name = input("STUDENT NAME:")
+    register_no = input("REGISTER NO:")
+    mobile_no = input("MOBILE NO:")
+    tuition_fee = float(input("TUITION FEE:"))
+    hostel_fee = float(input("HOSTEL FEE:"))
+    library_fee = float(input("LIBRARY FEE:"))
+    total_fee = tuition_fee+hostel_fee+library_fee
+    receipt = f"""
+======================================
+
+              RECEIPT
+======================================
+DATE : {get_current_date()}
+
+  STUDENT NAME : {student_name}
+  REGISTER NO  : {register_no}
+  MOBILE NO    : {mobile_no}
+______________________________________
+
+  TUITION FEE : {tuition_fee:.2f}
+  HOSTEL FEE  : {hostel_fee:.2f}
+  LIBRARY FEE : {library_fee:.2f}
+______________________________________
+
+  TOTAL FEE : {total_fee:.2f}
+
+======================================
+        PAYMENT SUCCESSFULL
+
+            THANK YOU
+======================================
+
+"""
+    return receipt
+
+def get_current_date():
+    
+    from datetime import datetime
+    return datetime.now().strftime('%d-%m-%Y  %H:%M:%S')
+
+receipt=generate_fee_payment_receipt()
+print(receipt)
